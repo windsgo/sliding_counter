@@ -27,6 +27,8 @@ void sliding_counter_clear(sliding_counter_t sc)
 bool sliding_counter_set_window_size(sliding_counter_t sc, uint32_t window_size)
 {
     if (window_size == 0) return false;
+
+    if (window_size == sc->window_size) return true;
     
     if (window_size > sc->max_window_size) {
         window_size = sc->max_window_size;
